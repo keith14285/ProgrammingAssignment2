@@ -3,19 +3,24 @@
 
 ## Write a short comment describing this function
 
-# this is taken from the "mean" function example, but I have edited it
-# so now it calculates inverse instead.
+## this is taken from the "mean" function example, but I have edited it
+## so now it calculates inverse instead.
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  ## Initialisation
   inv <- NULL
+  ## Set matrix
   set <- function(y) {
     x <<- y
     inv <<- NULL
   }
+  ## Get matrix
   get <- function() x
+  ## Set inverse of matrix
   setinverse <- function(inverse) inv <<- inverse
+  ## Get inverse of matrix
   getinverse <- function() inv
+  ## This is a list of the methods
   list(set = set,
        get = get,
        setinverse = setinverse,
@@ -36,7 +41,10 @@ cacheSolve <- function(x, ...) {
     return(inv)
   }
   data <- x$get()
+  ## Calculate inverse
   inv <- solve(data, ...)
+  ## Set inverse
   x$setinverse(inv)
+  ## Return matrix
   inv
 }
